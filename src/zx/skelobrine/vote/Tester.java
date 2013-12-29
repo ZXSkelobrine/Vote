@@ -41,20 +41,20 @@ public class Tester {
             timer.cancel();
             xb = (Main.voteY == Main.voteN);
 
-            broad("Vote has ended");
+            broad("Vote has ended", 0);
             if (Main.voteY >= Main.fthresh && Main.voteN <= Main.fthresh && !xb) {
                 command();
             } else {
-                broad("Vote has failed");
+                broad("Vote has failed", 0);
             }
 
             if (xb) {
-                broad(Main.configS[1]);
+                broad(Main.configS[1], 0);
                 if (chance(100)) {
-                    broad("Vote will take effect!");
+                    broad("Vote will take effect!", 0);
                     command();
                 } else {
-                    broad("Vote will not take effect");
+                    broad("Vote will not take effect", 0);
                 }
             }
             clear();
@@ -65,18 +65,18 @@ public class Tester {
     public static void command() {
         switch (Main.voteTop) {
             case 1:
-                broad(Main.configS[2]);
+                broad(Main.configS[2], 0);
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "time set 0");
                 break;
             case 2:
-                broad(Main.configS[3]);
+                broad(Main.configS[3], 0);
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "time set 18000");
                 break;
             case 3:
                 if (Bukkit.getWorlds().get(0).hasStorm()) {
-                    broad(Main.configS[5]);
+                    broad(Main.configS[5], 0);
                 } else {
-                    broad(Main.configS[4]);
+                    broad(Main.configS[4], 0);
                 }
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "toggledownfall");
                 break;
@@ -86,18 +86,18 @@ public class Tester {
     public static void command(int com) {
         switch (com) {
             case 1:
-                broad(Main.configS[2]);
+                broad(Main.configS[2], 0);
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "time set 0");
                 break;
             case 2:
-                broad(Main.configS[3]);
+                broad(Main.configS[3], 0);
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "time set 18000");
                 break;
             case 3:
                 if (Bukkit.getWorlds().get(0).hasStorm()) {
-                    broad(Main.configS[5]);
+                    broad(Main.configS[5], 0);
                 } else {
-                    broad(Main.configS[4]);
+                    broad(Main.configS[4], 0);
                 }
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "toggledownfall");
                 break;
@@ -120,7 +120,12 @@ public class Tester {
         Main.tR = false;
     }
 
-    public static void broad(String m) {
+    public static void broad(String m, int f) {
+        if (f == 1){
+            for (Player p : Bukkit.getOnlinePlayers()) {
+                p.sendMessage(ChatColor.DARK_GREEN + "" + ChatColor.BOLD + "[Voter]" + ChatColor.RESET + "" + ChatColor.GREEN + m);
+            }
+        }
         boolean config = false;
         if (Main.configB) {
             config = true;

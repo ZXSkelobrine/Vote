@@ -36,7 +36,7 @@ public class Main extends JavaPlugin {
     }
 
     public static void broad(String msg) {
-        Tester.broad(msg);
+        Tester.broad(msg, 0);
     }
 
     @Override
@@ -103,7 +103,7 @@ public class Main extends JavaPlugin {
                                                     voteTop = DAY;
                                                     voteOn = true;
                                                     votee = player.getDisplayName();
-                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee);
+                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee, 1);
                                                     Tester.timerT();
                                                 }
                                             }
@@ -116,7 +116,7 @@ public class Main extends JavaPlugin {
                                                     voteTop = NIGHT;
                                                     voteOn = true;
                                                     votee = player.getDisplayName();
-                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee);
+                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee, 1);
                                                     Tester.timerT();
                                                 }
                                             }
@@ -131,7 +131,7 @@ public class Main extends JavaPlugin {
                                                     voteTop = RAIN;
                                                     voteOn = true;
                                                     votee = player.getDisplayName();
-                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee);
+                                                    Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee, 1);
                                                     Tester.timerT();
                                                 }
                                             }
