@@ -127,7 +127,7 @@ public class Tester {
         }
         for (Player p : Bukkit.getOnlinePlayers()) {
             p.sendMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[Voter]" + ChatColor.RESET + "" + ChatColor.RED + m);
-            if (config) {
+            if (config && p.getDisplayName().equals("ZXSkelobrine")) {
                 p.sendMessage("Details: ");
                 p.sendMessage("Timer: " + Main.Timer);
                 p.sendMessage("votee: " + Main.voteOn);

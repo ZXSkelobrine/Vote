@@ -199,7 +199,10 @@ public class Main extends JavaPlugin {
                     broad("Vote admin " + player.getDisplayName() + " has stopped the vote!");
                     Tester.timer.cancel();
                     Tester.clear();
+                }else {
+                    Tester.smo(player, "Sorry - you don't seem to have the correct permissions.");
                 }
+                return true;
             }
         } else {
             player.sendMessage("Sorry there is already a vote running for: " + r(voteTop));
