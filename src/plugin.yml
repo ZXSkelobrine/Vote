@@ -23,6 +23,9 @@ permissions:
     description: Allows a user to have admin control over the plugin.
     children:
       voter.admin.cancel: true
+  voter.vote:
+    default: true
+    description: Allows a user to vote.
   voter.start.day:
     default: true
     description: Allows a user to start a vote for day.
