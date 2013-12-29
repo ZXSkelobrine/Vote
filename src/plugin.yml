@@ -1,0 +1,40 @@
+name: Voter
+version: 1.0.0
+description: This plugin allows player to vote
+load: STARTUP
+author: ZXSkelobrine
+main: zx.skelobrine.vote.Main
+prefix: ZXVoter
+commands:
+  vote:
+    usage: /vote [start/y/n] [day/night/rain]
+    description: The command to start a vote
+    alias: vo
+permissions:
+  voter.start:
+    default: true
+    description: Allows users to see what type of votes they can start.
+    children:
+      voter.start.day: true
+      voter.start.night: true
+      voter.start.rain: true
+  voter.admin:
+    default: false
+    description: Allows a user to have admin control over the plugin.
+    children:
+      voter.admin.cancel: true
+  voter.start.day:
+    default: true
+    description: Allows a user to start a vote for day.
+  voter.start.night:
+    default: true
+    description: Allows a user to start a vote for night.
+  voter.start.rain:
+    default: true
+    description: Allows a user to start a vote for rain.
+  voter.vote.y:
+    default: true
+    description: Allows a user to vote yes.
+  voter.vote.n:
+    default: true
+    description: Allows a user to vote no.

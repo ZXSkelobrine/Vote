@@ -1,0 +1,16 @@
+#Set this value to false unless explicitly told to change it by ZXSkelobrine
+debug: false
+
+#This is the message if the vote goes to a chance decider
+chance: 'Letting the gods decide'
+
+#These are the success messages
+success:
+  day: 'Vote is a success the time is set to day'
+  night: 'Vote is a success the time is set to night'
+  rain:
+    start: 'Vote is a success the rain is starting'
+    stop: 'Vote is a success the rain is stopping'
+
+#This is how long the vote lasts for (In seconds - 300 = 5 minutes)
+timer: 300

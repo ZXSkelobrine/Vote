@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Vote:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Vote_jar</output-path>
+    <root id="archive" name="Vote.jar">
+      <element id="module-output" name="Vote" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/bukkit-1.7.2-R0.2-20131218.060331-1.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/config.yml" />
+    </root>
+  </artifact>
+</component>
