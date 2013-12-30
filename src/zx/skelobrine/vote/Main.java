@@ -15,6 +15,8 @@ public class Main extends JavaPlugin {
     public static final int DAY = 1;
     static final int NIGHT = 2;
     static final int RAIN = 3;
+    static final int KICK = 4;
+    static final int BAN = 5;
     public static boolean Timer = false;
     public static String votee = "";
     public static boolean voteOn = false;
@@ -25,11 +27,13 @@ public class Main extends JavaPlugin {
     public static boolean tR = false;
     public static int voteY = 0;
     public static int voteN = 0;
-    public static String configS[] = new String[6];
+    public static String configS[] = new String[100];
     public static int configI = 300;
     public static boolean configB = false;
+    public static String holder = "";
     @SuppressWarnings("CanBeFinal")
     public static List<String> voted = new ArrayList<String>();
+    int thesholds[] = new int[]{this.getConfig().getInt("ban.banThreshold"), this.getConfig().getInt("kick.kickThreshold")};
 
     private static String rem(String str) {
         return str.substring(0, str.length() - 2);
@@ -51,6 +55,10 @@ public class Main extends JavaPlugin {
         configS[3] = this.getConfig().getString("success.night");
         configS[4] = this.getConfig().getString("success.rain.start");
         configS[5] = this.getConfig().getString("success.rain.stop");
+
+        configS[6] = this.getConfig().getString("kick.kick1");
+        configS[7] = this.getConfig().getString("kick.kick2");
+
         getLogger().info("//----------------------------------------------");
         getLogger().info("//Debug: " + configB);
         getLogger().info("//Timer: " + configI);
@@ -136,6 +144,44 @@ public class Main extends JavaPlugin {
                                                 }
                                             }
                                         }
+                                        if (args[1].equalsIgnoreCase("ban")) {
+                                            if (!(args.length < 2)) {
+                                                if (player.hasPermission("voter.start.ban")) {
+                                                    if (Bukkit.getOnlinePlayers().length < 3) {
+                                                        broad("Insufficient online player to allow a ban.");
+                                                    } else {
+
+                                                    }
+                                                }
+                                            } else {
+
+                                            }
+                                        }
+                                        if (args[1].equalsIgnoreCase("kick")) {
+                                            if (!(args.length < 2)) {
+                                                if (player.hasPermission("voter.start.kick")) {
+                                                    if (Bukkit.getOnlinePlayers().length < thesholds[1]) {
+                                                        broad("Insufficient online player to allow a kick.");
+                                                    } else {
+                                                        boolean online = false;
+                                                        for (Player p : Bukkit.getOnlinePlayers()) {
+                                                            online = p.getDisplayName().equalsIgnoreCase(args[2]);
+                                                        }
+                                                        if (!online) {
+                                                            Tester.smo(player, "They are not online");
+                                                        } else {
+                                                            voteTop = KICK;
+                                                            voteOn = true;
+                                                            votee = player.getDisplayName();
+                                                            Tester.broad("Vote Topic: " + r(voteTop) + "   Vote Starter: " + votee, 1);
+                                                            holder = args[2];
+                                                            Tester.timerT();
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+
                                     }
 
                                 }
@@ -199,7 +245,7 @@ public class Main extends JavaPlugin {
                     broad("Vote admin " + player.getDisplayName() + " has stopped the vote!");
                     Tester.timer.cancel();
                     Tester.clear();
-                }else {
+                } else {
                     Tester.smo(player, "Sorry - you don't seem to have the correct permissions.");
                 }
                 return true;

@@ -80,6 +80,11 @@ public class Tester {
                 }
                 Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "toggledownfall");
                 break;
+            case 4:
+                broad(Main.configS[6] + Main.holder + Main.configS[7], 0);
+                Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "kick " + Main.holder);
+                break;
+
         }
     }
 

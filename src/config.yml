@@ -12,5 +12,14 @@ success:
     start: 'Vote is a success the rain is starting'
     stop: 'Vote is a success the rain is stopping'
 
+kick:
+  kick1: 'Vote is a success '
+  kick2: ' will be kicked'
+  kickThreshold: 2
+ban:
+  ban1: 'Vote is a success '
+  ban2: ' will be banned'
+  banThreshold: 5
+
 #This is how long the vote lasts for (In seconds - 300 = 5 minutes)
 timer: 300
